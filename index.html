@@ -22,8 +22,8 @@ body {
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
 
-var margin = {top: 20, right: 60, bottom: 30, left: 40},
-    width = 1000 - margin.left - margin.right,
+var margin = {top: 20, right: 100, bottom: 30, left: 40},
+    width = 1040 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 var x = d3.scale.linear()
@@ -97,13 +97,13 @@ d3.csv("small_dog_breeds.csv", function(error, data) {
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
   legend.append("rect")
-      .attr("x", width + 10)
+      .attr("x", width + 100)
       .attr("width", 18)
       .attr("height", 18)
       .style("fill", color);
 
   legend.append("text")
-      .attr("x", width)
+      .attr("x", width + 75)
       .attr("y", 9)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
