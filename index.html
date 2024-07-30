@@ -8,9 +8,16 @@
 
 <div id="step1" class="container-fluid">
   <div>
+    <p>
+      <h1>1. Dog breed average height and average life expectancy</h1>
+  This scene shows the average height of a given dog breed with respect to its expected average life expectancy for all sizes of dog breeds.
+  As you can see in the plot, the life expectancy tends to decrease the larger the dog gets.
+    </p>
 	<button onclick="smallDogNext()">See Small Dog Data</button>
   </div>
 </div>
+<button onclick="removeAnnotations()">See Small Dog Data</button>
+
 
 <style>
 
@@ -89,21 +96,9 @@ var largeBreedAnnotation1 = "This scene shows the average height and life expect
 var largeBreedAnnotation2 = "You can see that all large dogs tend to live shorter than the average for all dogs. All large dog breeds tend to live longer than 6 years and as long as 15 years."
 
 	
-function createChart(dataFile, annotation1, annotation2) {
+function createChart(dataFile) {
   d3.csv(dataFile, function(error, data) {
     if (error) throw error;
-
-    svg.append("text")
-	.attr("class", "label")
-	.attr("y", 10)
-	.style("text-anchor", "start")
-	.text(annotation1);
-
-    svg.append("text")
-	.attr("class", "label")
-	.attr("y", 0)
-	.style("text-anchor", "start")
-	.text(annotation2);
 
     data.forEach(function(d) {
       d.AverageHeight = +d.AverageHeight;
@@ -152,7 +147,11 @@ function createChart(dataFile, annotation1, annotation2) {
       .on("mouseout", function() { tooltip.style("opacity", 0) });
 	});
 }
-	
-createChart("dog_breeds.csv",allBreedAnnotation1,allBreedAnnotation2);
+
+function removeAnnotations(){
+	svg.select("step1").remove();
+}
+
+createChart("dog_breeds.csv");
 
 </script>
