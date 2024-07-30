@@ -18,7 +18,7 @@
   This scene shows the average height of a given dog breed with respect to its expected average life expectancy for all sizes of dog breeds.
   As you can see in the plot, the life expectancy tends to decrease the larger the dog gets.
     </p>
-	<button onclick="myFunction()">Click me</button>
+	<button onclick="smallDogNext()">See Small Dog Data</button>
   </div>
 </div>
 
@@ -86,8 +86,9 @@ border: 0px;
 <div id="tooltip"></div>
   
 <script>
-function myFunction() {
-  document.getElementById("demo").innerHTML = "Hello World";
+function smallDogNext() {
+	document.getElementById("demo").reset();
+	createChart(small_dog_breeds)
 }
 
 var tooltip = d3.select("#tooltip");
