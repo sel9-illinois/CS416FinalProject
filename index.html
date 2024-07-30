@@ -6,18 +6,20 @@
   <title>Narrative Visualization for Dog Breeds</title>
 </head>
 
-<div id="step1">
+<div id="step1" class="container-fluid">
   <div>
     <p>
+**/
       <h1>1. Dog breed average height and average life expectancy</h1>
   This scene shows the average height of a given dog breed with respect to its expected average life expectancy for all sizes of dog breeds.
   As you can see in the plot, the life expectancy tends to decrease the larger the dog gets.
+*/
     </p>
 	<button onclick="smallDogNext()">See Small Dog Data</button>
   </div>
 </div>
 
-<div id="step2">
+<div id="step2" class="container-fluid">
   <div>
     <p>
       <h1>2. Small dog breed average height and average life expectancy</h1>
@@ -28,7 +30,7 @@
   </div>
 </div>
 
-<div id="step3">
+<div id="step3" class="container-fluid">
   <div>
     <p>
       <h1>3. Medium dog breed average height and average life expectancy</h1>
@@ -114,10 +116,13 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-function createChart(dataFile) {
+function createChart(dataFile, annotations) {
   d3.csv(dataFile, function(error, data) {
     if (error) throw error;
-  
+
+    svg.append("text")
+	  .text({return annotations});
+
     data.forEach(function(d) {
       d.AverageHeight = +d.AverageHeight;
       d.AverageLongevity = +d.AverageLongevity;
@@ -165,12 +170,6 @@ function createChart(dataFile) {
       .on("mouseout", function() { tooltip.style("opacity", 0) });
 	});
 }
-
-
-function removeChart() {
-    svg.selectAll("g").remove();
-}
-
 	
 createChart("dog_breeds.csv");
 
