@@ -82,7 +82,7 @@ border: 0px;
   
 <script>
 function smallDogNext() {
-	removeChart();
+	//removeChart();
 	createChart("small_dog_breeds.csv");
 }
 
@@ -166,9 +166,11 @@ function createChart(dataFile) {
 	});
 }
 
+/**
 function removeChart() {
     svg.selectAll(*).remove();
 }
+*/
 	
 createChart("dog_breeds.csv");
 
