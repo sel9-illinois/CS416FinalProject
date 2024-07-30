@@ -81,9 +81,9 @@ d3.csv("dog_breeds.csv", function(error, data) {
       .call(xAxis)
     .append("text")
       .attr("class", "label")
-      .attr("x", width)
+      .attr("x", width - 10)
       .attr("y", -6)
-      .style("text-anchor", "end")
+      .style("text-anchor", "middle")
       .text("Average Height (in)");
 
   svg.append("g")
@@ -94,7 +94,7 @@ d3.csv("dog_breeds.csv", function(error, data) {
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
       .attr("dy", ".71em")
-      .style("text-anchor", "end")
+      .style("text-anchor", "middle")
       .text("Average Life Expectancy (yrs)")
 
   svg.selectAll(".dot")
@@ -122,7 +122,7 @@ d3.csv("dog_breeds.csv", function(error, data) {
       .attr("x", width - 24)
       .attr("y", 9)
       .attr("dy", ".35em")
-      .style("text-anchor", "end")
+      .style("text-anchor", "middle")
       .text(function(d) { return d; });
 
 });
