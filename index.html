@@ -118,8 +118,9 @@ function createChart(dataFile, annotations) {
     if (error) throw error;
 
     svg.append("text")
+	.attr("class", "label")
 	.attr("x", margin.left)
-	.style("text-anchor",start)
+	.style("text-anchor", "start")
 	.text(annotations);
 
     data.forEach(function(d) {
