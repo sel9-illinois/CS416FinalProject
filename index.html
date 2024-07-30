@@ -53,6 +53,10 @@ body {
   font: 10px sans-serif;
 }
 
+#annotation {
+  font: 20px sans-serif;
+}
+	
 .axis path,
 .axis line {
   fill: none;
@@ -76,7 +80,9 @@ border: 0px;
 </style>
 <body>
 <div id="tooltip"></div>
-  
+<div id="annotation"></div>
+
+	
 <script>
 function smallDogNext() {
 	//removeChart();
@@ -84,6 +90,8 @@ function smallDogNext() {
 }
 
 var tooltip = d3.select("#tooltip");
+
+var annotation = d3.select("annotation");
   
 var margin = {top: 50, right: 150, bottom: 40, left: 60},
     width = 1120 - margin.left - margin.right,
@@ -120,13 +128,13 @@ function createChart(dataFile, annotation1, annotation2) {
 
     svg.append("text")
 	.attr("class", "label")
-	.attr("y", margin.top)
+	.attr("y", height + 40)
 	.style("text-anchor", "start")
 	.text(annotation1);
 
     svg.append("text")
 	.attr("class", "label")
-	.attr("y", margin.top)
+	.attr("y", height + 30)
 	.style("text-anchor", "start")
 	.text(annotation2);
 
