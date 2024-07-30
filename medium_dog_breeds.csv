@@ -1,4 +1,4 @@
-﻿Size,Breed,Country of Origin,Fur Color,Min Height (in),Max Height (in),Average Height (in),Color of Eyes,Min Longevity (yrs),Max Longevity (yrs),Average Longevity (yrs),Character Traits,Common Health Problems
+Size,Breed,CountryOfOrigin,FurColor,MinHeight,MaxHeight,AverageHeight,EyeColor,MinLongevity,MaxLongevity,AverageLongevity,CharacterTraits,CommonHealthProblems
 Medium,Irish Terrier,Ireland,Red,14,16,15,Brown,12,14,13,"Intelligent, energetic, playful, good-natured","Dental problems, eye issues, skin allergies"
 Medium,Staffordshire Bull Terrier,England,"White, Black, Red",14,16,15,Brown,12,14,13,"Intelligent, energetic, playful, good-natured","Dental problems, eye issues, skin allergies"
 Medium,Shetland Sheepdog,Scotland,"Sable, Black",13,16,14.5,Brown,12,14,13,"Intelligent, energetic, playful, good-natured","Dental problems, eye issues, skin allergies"
