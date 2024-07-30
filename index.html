@@ -52,10 +52,6 @@
 body {
   font: 10px sans-serif;
 }
-
-#annotation {
-  font: 20px sans-serif;
-}
 	
 .axis path,
 .axis line {
@@ -80,8 +76,6 @@ border: 0px;
 </style>
 <body>
 <div id="tooltip"></div>
-<div id="annotation"></div>
-
 	
 <script>
 function smallDogNext() {
@@ -90,9 +84,7 @@ function smallDogNext() {
 }
 
 var tooltip = d3.select("#tooltip");
-
-var annotation = d3.select("annotation");
-  
+	
 var margin = {top: 50, right: 150, bottom: 40, left: 60},
     width = 1120 - margin.left - margin.right,
     height = 580 - margin.top - margin.bottom;
