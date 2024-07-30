@@ -1,4 +1,4 @@
-﻿Size,Breed,Country of Origin,Fur Color,Min Height (in),Max Height (in),Average Height (in),Color of Eyes,Min Longevity (yrs),Max Longevity (yrs),Average Longevity (yrs),Character Traits,Common Health Problems
+﻿Size,Breed,CountryOfOrigin,FurColor,MinHeight,MaxHeight,AverageHeight,EyeColor,MinLongevity,MaxLongevity,AverageLongevity,CharacterTraits,CommonHealthProblems
 Large,Samoyed,Russia,White,21,23,22,Brown,12,14,13,"Intelligent, energetic, playful, good-natured","Dental problems, eye issues, skin allergies"
 Large,Australian Shepherd,Australia,Blue Merle,20,23,21.5,Brown,12,14,13,"Intelligent, energetic, good-natured, loyal","Dental problems, eye issues, skin allergies"
 Large,Australian Shepherd,Australia,"Black, Red",18,23,20.5,"Brown, Blue",12,15,14,"Intelligent, energetic, loyal, trainable","Hip dysplasia, eye problems, epilepsy"
