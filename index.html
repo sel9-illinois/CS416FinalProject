@@ -65,9 +65,9 @@ d3.csv("small_dog_breeds.csv", function(error, data) {
       .call(xAxis)
     .append("text")
       .attr("class", "label")
-      .attr("x", width)
-      .attr("y", 6)
-      .style("text-anchor", "end")
+      .attr("x", width/2)
+      .attr("y", 15)
+      .style("text-anchor", "middle")
       .text("Average Height (in)");
 
   svg.append("g")
