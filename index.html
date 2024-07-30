@@ -53,51 +53,38 @@ function smallDogNext() {
 	//removeChart();
 	createChart("small_dog_breeds.csv");
 }
-
-var tooltip = d3.select("#tooltip");
-	
-var margin = {top: 50, right: 150, bottom: 40, left: 60},
-    width = 1120 - margin.left - margin.right,
-    height = 580 - margin.top - margin.bottom;
-
-var x = d3.scale.linear()
-    .range([0, width]);
-
-var y = d3.scale.linear()
-    .range([height, 0]);
-
-var color = d3.scale.category10();
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left");
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-var allBreedAnnotation1 = "1. This scene shows the average height of a given dog breed with respect to its expected average life expectancy for all sizes of dog breeds. As you can see in the plot, the life expectancy tends to decrease the larger the dog gets."
-var allBreedAnnotation2 = "As you can see in the plot, the life expectancy tends to decrease the larger the dog gets."
-
-var smallBreedAnnotation1 = "2. This scene shows the average height and life expectancy for small dogs which includes anything shorter than 15 in."
-var smallBreedAnnotation2 = "You can see that all small dogs tend to live longer than the average for all dogs. All small dog breeds tend to live longer than 10 years and as long as 20 years."
-
-var mediumBreedAnnotation1 = "This scene shows the average height and life expectancy for medium dogs which includes anything in the range of 15 in to 22 in."
-var mediumBreedAnnotation2 = "You can see that most medium dogs tend to live the average years for all dogs. All medium dog breeds tend to live longer than 8 years and as long as 16 years."
-
-var largeBreedAnnotation1 = "This scene shows the average height and life expectancy for large dogs which includes anything taller than 22 in."
-var largeBreedAnnotation2 = "You can see that all large dogs tend to live shorter than the average for all dogs. All large dog breeds tend to live longer than 6 years and as long as 15 years."
-
 	
 function createChart(dataFile) {
-  d3.csv(dataFile, function(error, data) {
-    if (error) throw error;
+	var tooltip = d3.select("#tooltip");
+		
+	var margin = {top: 50, right: 150, bottom: 40, left: 60},
+	    width = 1120 - margin.left - margin.right,
+	    height = 580 - margin.top - margin.bottom;
+	
+	var x = d3.scale.linear()
+	    .range([0, width]);
+	
+	var y = d3.scale.linear()
+	    .range([height, 0]);
+	
+	var color = d3.scale.category10();
+	
+	var xAxis = d3.svg.axis()
+	    .scale(x)
+	    .orient("bottom");
+	
+	var yAxis = d3.svg.axis()
+	    .scale(y)
+	    .orient("left");
+	
+	var svg = d3.select("body").append("svg")
+	    .attr("width", width + margin.left + margin.right)
+	    .attr("height", height + margin.top + margin.bottom)
+	  .append("g")
+	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		
+		d3.csv(dataFile, function(error, data) {
+	    if (error) throw error;
 
     data.forEach(function(d) {
       d.AverageHeight = +d.AverageHeight;
