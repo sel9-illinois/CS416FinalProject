@@ -1,21 +1,5 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-
-<head>
-  <title>Narrative Visualization for Dog Breeds</title>
-</head>
-
-<div id="step1" class="container-fluid" style="height:300px">
-  <div>
-    <p>
-      <h1>1. Dog breed average height and average life expectancy
-  This scene shows the average height of a given dog breed with respect to its expected average life expectancy for all sizes of dog breeds.
-  As you can see in the plot, the life expectancy tends to decrease the larger the dog gets.
-    </p>
-    <p><div id="to_step2"><a href="#">View next >>></a></div></p>
-  </div>
-</div>
-
 <style>
 
 body {
@@ -33,22 +17,11 @@ body {
   stroke: #000;
 }
 
-.chart rect ( fill: steelblue; } 
-#tooltip {
-  opacity: 0;
-  position: absolute; 
-  text-align: center;
-  width: 60px; height: 40px; 
-  background: white;
-  border: 0px;
-}
-  
 </style>
 <body>
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
-var tooltip = d3. select ("#tooltip");
-  
+
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
@@ -59,7 +32,7 @@ var x = d3.scale.linear()
 var y = d3.scale.linear()
     .range([height, 0]);
 
-var color = d3.scale.category100();
+var color = d3.scale.category10();
 
 var xAxis = d3.svg.axis()
     .scale(x)
@@ -75,16 +48,16 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("dog_breeds.csv", function(error, data) {
+d3.tsv("data.tsv", function(error, data) {
   if (error) throw error;
 
   data.forEach(function(d) {
-    d.AverageHeight = +d.AverageHeight;
-    d.AverageLongevity = +d.AverageLongevity;
+    d.sepalLength = +d.sepalLength;
+    d.sepalWidth = +d.sepalWidth;
   });
 
-  x.domain(d3.extent(data, function(d) { return d.AverageHeight; })).nice();
-  y.domain(d3.extent(data, function(d) { return d.AverageLongevity; })).nice();
+  x.domain(d3.extent(data, function(d) { return d.sepalWidth; })).nice();
+  y.domain(d3.extent(data, function(d) { return d.sepalLength; })).nice();
 
   svg.append("g")
       .attr("class", "x axis")
@@ -92,10 +65,10 @@ d3.csv("dog_breeds.csv", function(error, data) {
       .call(xAxis)
     .append("text")
       .attr("class", "label")
-      .attr("x", width - 10)
+      .attr("x", width)
       .attr("y", -6)
-      .style("text-anchor", "middle")
-      .text("Average Height (in)");
+      .style("text-anchor", "end")
+      .text("Sepal Width (cm)");
 
   svg.append("g")
       .attr("class", "y axis")
@@ -105,21 +78,37 @@ d3.csv("dog_breeds.csv", function(error, data) {
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
       .attr("dy", ".71em")
-      .style("text-anchor", "middle")
-      .text("Average Life Expectancy (yrs)")
+      .style("text-anchor", "end")
+      .text("Sepal Length (cm)")
 
   svg.selectAll(".dot")
       .data(data)
     .enter().append("circle")
       .attr("class", "dot")
       .attr("r", 3.5)
-      .attr("cx", function(d) { return x(d.AverageHeight); })
-      .attr("cy", function(d) { return y(d.AverageLongevity); })
-      .style("fill", function(d) { return color(d.Breed); })
-      .on("mouseover", function(d, 1) { tooltip.style("opacity", 1)
-      .html(d.Breed + ": \\n Height Range: " + d.MinHeight + "-" + d.MaxHeight + "\\n Life Expectancy Range: " + d.MinLongevity + "-" + d.MaxLongevity );
-    })
-    .on("mouseout", function() { tooltip.style("opacity", 0) })
+      .attr("cx", function(d) { return x(d.sepalWidth); })
+      .attr("cy", function(d) { return y(d.sepalLength); })
+      .style("fill", function(d) { return color(d.species); });
+
+  var legend = svg.selectAll(".legend")
+      .data(color.domain())
+    .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend.append("rect")
+      .attr("x", width - 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", color);
+
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d; });
+
 });
 
 </script>
