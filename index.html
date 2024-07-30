@@ -106,9 +106,9 @@ d3.csv("small_dog_breeds.csv", function(error, data) {
     .append("text")
       .attr("class", "label")
       .attr("transform", "rotate(-90)")
-      .attr("y", 500)
-      .attr("dy", "-.5em")
-      .style("text-anchor", "middle ")
+      .attr("y", -100)
+      .attr("dy", "5em")
+      .style("text-anchor", "end ")
       .text("Sepal Length (cm)")
 
   svg.selectAll(".dot")
