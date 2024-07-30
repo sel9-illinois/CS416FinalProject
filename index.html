@@ -52,12 +52,12 @@ d3.csv("dog_breeds.csv", function(error, data) {
   if (error) throw error;
 
   data.forEach(function(d) {
-    d.sepalLength = +d.sepalLength;
-    d.sepalWidth = +d.sepalWidth;
+    d.AverageHeight = +d.AverageHeight;
+    d.AverageLongevity = +d.AverageLongevity;
   });
 
-  x.domain(d3.extent(data, function(d) { return d.sepalWidth; })).nice();
-  y.domain(d3.extent(data, function(d) { return d.sepalLength; })).nice();
+  x.domain(d3.extent(data, function(d) { return d.AverageHeight; })).nice();
+  y.domain(d3.extent(data, function(d) { return d.AverageLongevity; })).nice();
 
   svg.append("g")
       .attr("class", "x axis")
@@ -86,9 +86,9 @@ d3.csv("dog_breeds.csv", function(error, data) {
     .enter().append("circle")
       .attr("class", "dot")
       .attr("r", 3.5)
-      .attr("cx", function(d) { return x(d.sepalWidth); })
-      .attr("cy", function(d) { return y(d.sepalLength); })
-      .style("fill", function(d) { return color(d.species); });
+      .attr("cx", function(d) { return x(d.AverageHeight); })
+      .attr("cy", function(d) { return y(d.AverageLongevity); })
+      .style("fill", function(d) { return color(d.Breed); });
 
   var legend = svg.selectAll(".legend")
       .data(color.domain())
