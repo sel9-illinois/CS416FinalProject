@@ -94,9 +94,9 @@ d3.csv("small_dog_breeds.csv", function(error, data) {
       .call(xAxis)
     .append("text")
       .attr("class", "label")
-      .attr("x", width/2)
+      .attr("x", width)
       .attr("y", 30)
-      .style("text-anchor", "middle")
+      .style("text-anchor", "end")
       .text("Average Height (in)");
 
   svg.append("g")
@@ -105,7 +105,7 @@ d3.csv("small_dog_breeds.csv", function(error, data) {
     .append("text")
       .attr("class", "label")
       .attr("transform", "rotate(-90)")
-      .attr("y", -20)
+      .attr("y", -30)
       .attr("dy", ".71em")
       .style("text-anchor", "end ")
       .text("Sepal Length (cm)")
@@ -125,25 +125,6 @@ d3.csv("small_dog_breeds.csv", function(error, data) {
           .html(d.Breed + "can be between " + d.MinHeight + "-" + d.MaxHeight + " inches and live between " + d.MinLongevity + "-" + d.MaxLongevity + "years." );
     })
     .on("mouseout", function() { tooltip.style("opacity", 0) });
-
-  var legend = svg.selectAll(".legend")
-      .data(color.domain())
-    .enter().append("g")
-      .attr("class", "legend")
-      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-
-  legend.append("rect")
-      .attr("x", width + 100)
-      .attr("width", 18)
-      .attr("height", 18)
-      .style("fill", color);
-
-  legend.append("text")
-      .attr("x", width + 95)
-      .attr("y", 9)
-      .attr("dy", ".35em")
-      .style("text-anchor", "end")
-      .text(function(d) { return d; });
 
 });
 
