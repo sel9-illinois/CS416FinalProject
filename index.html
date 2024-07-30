@@ -22,9 +22,9 @@ body {
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
 
-var margin = {top: 20, right: 150, bottom: 30, left: 40},
-    width = 1100 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+var margin = {top: 20, right: 150, bottom: 40, left: 60},
+    width = 1120 - margin.left - margin.right,
+    height = 550 - margin.top - margin.bottom;
 
 var x = d3.scale.linear()
     .range([0, width]);
@@ -77,7 +77,7 @@ d3.csv("small_dog_breeds.csv", function(error, data) {
       .attr("class", "label")
       .attr("transform", "rotate(-90)")
       .attr("y", -25)
-      .attr("dy", ".5em")
+      .attr("dy", ".71em")
       .style("text-anchor", "middle ")
       .text("Sepal Length (cm)")
 
