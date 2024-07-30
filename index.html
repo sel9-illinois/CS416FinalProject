@@ -120,7 +120,7 @@ var svg = d3.select("body").append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 function createChart(dataFile) {
-  d3.csv(dataFile + ".csv", function(error, data) {
+  d3.csv(dataFile, function(error, data) {
     if (error) throw error;
   
     data.forEach(function(d) {
@@ -171,6 +171,6 @@ function createChart(dataFile) {
 	});
 }
 
-createChart(dog_breeds);
+createChart("dog_breeds.csv");
 
 </script>
