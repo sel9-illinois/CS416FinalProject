@@ -38,7 +38,7 @@ body {
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
 
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
+var margin = {top: 20, right: 60, bottom: 30, left: 40},
     width = 1000 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -92,8 +92,8 @@ d3.csv("dog_breeds.csv", function(error, data) {
     .append("text")
       .attr("class", "label")
       .attr("transform", "rotate(-90)")
-      .attr("y", height)
-      .attr("dy", ".71em")
+      .attr("y", 2)
+      .attr("dy", ".35em")
       .style("text-anchor", "middle")
       .text("Average Life Expectancy (yrs)")
 
