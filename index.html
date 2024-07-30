@@ -105,7 +105,7 @@ d3.csv("dog_breeds.csv", function(error, data) {
       .attr("cx", function(d) { return x(d.AverageHeight); })
       .attr("cy", function(d) { return y(d.AverageLongevity); })
       .style("fill", function(d) { return color(d.Breed); });
-
+/**
   var legend = svg.selectAll(".legend")
       .data(color.domain())
     .enter().append("g")
@@ -124,7 +124,7 @@ d3.csv("dog_breeds.csv", function(error, data) {
       .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text(function(d) { return d; });
-
+*/
 });
 
 </script>
