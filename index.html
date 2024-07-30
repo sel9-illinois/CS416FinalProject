@@ -148,7 +148,7 @@ function createChart(dataFile) {
 }
 
 function removeAnnotations(){
-	d3.select("step1").remove();
+	d3.selectAll("p").remove();
 }
 
 createChart("dog_breeds.csv");
