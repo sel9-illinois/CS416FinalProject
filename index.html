@@ -9,11 +9,6 @@
 <div id="step1" class="container-fluid">
   <div>
     <p>
-**/
-      <h1>1. Dog breed average height and average life expectancy</h1>
-  This scene shows the average height of a given dog breed with respect to its expected average life expectancy for all sizes of dog breeds.
-  As you can see in the plot, the life expectancy tends to decrease the larger the dog gets.
-*/
     </p>
 	<button onclick="smallDogNext()">See Small Dog Data</button>
   </div>
@@ -90,9 +85,9 @@ function smallDogNext() {
 
 var tooltip = d3.select("#tooltip");
   
-var margin = {top: 20, right: 150, bottom: 40, left: 60},
+var margin = {top: 50, right: 150, bottom: 40, left: 60},
     width = 1120 - margin.left - margin.right,
-    height = 550 - margin.top - margin.bottom;
+    height = 580 - margin.top - margin.bottom;
 
 var x = d3.scale.linear()
     .range([0, width]);
@@ -123,7 +118,9 @@ function createChart(dataFile, annotations) {
     if (error) throw error;
 
     svg.append("text")
-	  .text(annotations);
+	.attr("x", margin.left)
+	.style("text-anchor",start)
+	.text(annotations);
 
     data.forEach(function(d) {
       d.AverageHeight = +d.AverageHeight;
