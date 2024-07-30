@@ -114,7 +114,12 @@ d3.csv("small_dog_breeds.csv", function(error, data) {
       .attr("r", 3.5)
       .attr("cx", function(d) { return x(d.AverageHeight); })
       .attr("cy", function(d) { return y(d.AverageLongevity); })
-      .style("fill", function(d) { return color(d.Breed); });
+      .style("fill", function(d) { return color(d.Breed); })
+      .on("mouseover", function(d, i) { 
+        tooltip.style("opacity", 1)
+          .html(d.Breed + ": \\n Height Range: " + d.MinHeight + "-" + d.MaxHeight + "\\n Life Expectancy Range: " + d.MinLongevity + "-" + d.MaxLongevity );
+    })
+    .on("mouseout", function() { tooltip.style("opacity", 0) });
 
   var legend = svg.selectAll(".legend")
       .data(color.domain())
