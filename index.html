@@ -61,10 +61,10 @@ function createChart(dataFile) {
 	    width = 1120 - margin.left - margin.right,
 	    height = 580 - margin.top - margin.bottom;
 	
-	var x = d3.scale.linear()
+	const x = d3.scale.linear()
 	    .range([0, width]);
 	
-	var y = d3.scale.linear()
+	const y = d3.scale.linear()
 	    .range([height, 0]);
 	
 	var color = d3.scale.category10();
