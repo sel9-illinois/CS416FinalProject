@@ -1,4 +1,4 @@
-Size,Breed,Country of Origin,Fur Color,Min Height (in),Max Height (in),Average Height (in),Color of Eyes,Min Longevity (yrs),Max Longevity (yrs),Average Longevity (yrs),Character Traits,Common Health Problems
+Size,Breed,CountryOfOrigin,FurColor,MinHeight,MaxHeight,AverageHeight,EyeColor,MinLongevity,MaxLongevity,AverageLongevity,CharacterTraits,CommonHealthProblems
 Small,Pomeranian,Germany,"Orange, Sable, Black",6,7,6.5,Brown,12,16,14,"Playful, energetic, intelligent, good-natured","Dental problems, eye problems, obesity"
 Small,Yorkshire Terrier,England,Blue & Tan,7,8,7.5,Brown,12,15,14,"Intelligent, energetic, playful, good-natured","Dental problems, eye issues, skin allergies"
 Small,Chihuahua,Mexico,"Black, Brown, Tan, White",6,9,7.5,"Brown, Blue",12,20,16,"Loyal, energetic, confident, sensitive","Dental problems, eye issues, respiratory issues"
