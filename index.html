@@ -82,18 +82,7 @@ border: 0px;
   
 <script>
 function smallDogNext() {
-	document.body.selectAll().remove();
-	<div id="step2">
-		<div>
-		<p>
-		<h1>2. Small dog breed average height and average life expectancy</h1>
-		This scene shows the average height and life expectancy for small dogs which includes anything shorter than 15 in.<br/>
-		You can see that all small dogs tend to live longer than the average for all dogs. All small dog breeds tend to live longer than 10 years and as long as 20 years.
-		</p>
-		<p><div id="to_step3"><a href="#">View next >>></a></div></p>
-		</div>
-	</div>
-
+	removeChart("small_dog_breeds.csv");
 	createChart("small_dog_breeds.csv");
 }
 
@@ -177,6 +166,21 @@ function createChart(dataFile) {
 	});
 }
 
+function removeChart(dataFile) {
+  d3.csv(dataFile, function(error, data) {
+    if (error) throw error;
+  
+    data.forEach(function(d) {
+      d.AverageHeight = +d.AverageHeight;
+      d.AverageLongevity = +d.AverageLongevity;
+    });
+  
+    x.domain(d3.extent(data, function(d) { return d.AverageHeight; })).nice();
+    y.domain(d3.extent(data, function(d) { return d.AverageLongevity; })).nice();
+  
+    svg.selectAll().remove();
+}
+	
 createChart("dog_breeds.csv");
 
 </script>
