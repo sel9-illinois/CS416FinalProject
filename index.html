@@ -69,15 +69,15 @@ function createChart(dataFile) {
 	
 	var color = d3.scale.category10();
 	
-	var xAxis = d3.svg.axis()
+	const xAxis = d3.svg.axis()
 	    .scale(x)
 	    .orient("bottom");
 	
-	var yAxis = d3.svg.axis()
+	const yAxis = d3.svg.axis()
 	    .scale(y)
 	    .orient("left");
 	
-	var svg = d3.select("body").append("svg")
+	const svg = d3.select("body").append("svg")
 	    .attr("width", width + margin.left + margin.right)
 	    .attr("height", height + margin.top + margin.bottom)
 	  .append("g")
