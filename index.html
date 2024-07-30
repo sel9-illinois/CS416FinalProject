@@ -6,6 +6,11 @@
   <title>Narrative Visualization for Dog Breeds</title>
 </head>
 
+
+<p id="demo"></p>
+
+
+
 <div id="step1" class="container-fluid" style="height:300px">
   <div>
     <p>
@@ -13,7 +18,7 @@
   This scene shows the average height of a given dog breed with respect to its expected average life expectancy for all sizes of dog breeds.
   As you can see in the plot, the life expectancy tends to decrease the larger the dog gets.
     </p>
-    <p><div id="to_step2"><a href="#">View next >>></a></div></p>
+	<button onclick="myFunction()">Click me</button>
   </div>
 </div>
 
@@ -81,6 +86,9 @@ border: 0px;
 <div id="tooltip"></div>
   
 <script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello World";
+}
 
 var tooltip = d3.select("#tooltip");
   
