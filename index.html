@@ -111,17 +111,24 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var allBreedAnnotations = "1. This scene shows the average height of a given dog breed with respect to its expected average life expectancy for all sizes of dog breeds. As you can see in the plot, the life expectancy tends to decrease the larger the dog gets."
-
-function createChart(dataFile, annotations) {
+var allBreedAnnotation1 = "1. This scene shows the average height of a given dog breed with respect to its expected average life expectancy for all sizes of dog breeds. As you can see in the plot, the life expectancy tends to decrease the larger the dog gets."
+var allBreedAnnotation2 = "As you can see in the plot, the life expectancy tends to decrease the larger the dog gets."
+	
+function createChart(dataFile, annotation1, annotation2) {
   d3.csv(dataFile, function(error, data) {
     if (error) throw error;
 
     svg.append("text")
 	.attr("class", "label")
-	.attr("x", margin.left)
+	.attr("y", margin.top)
 	.style("text-anchor", "start")
-	.text(annotations);
+	.text(annotation1);
+
+    svg.append("text")
+	.attr("class", "label")
+	.attr("y", margin.top)
+	.style("text-anchor", "start")
+	.text(annotation2);
 
     data.forEach(function(d) {
       d.AverageHeight = +d.AverageHeight;
@@ -171,6 +178,6 @@ function createChart(dataFile, annotations) {
 	});
 }
 	
-createChart("dog_breeds.csv",allBreedAnnotations);
+createChart("dog_breeds.csv",allBreedAnnotation1,allBreedAnnotation2);
 
 </script>
