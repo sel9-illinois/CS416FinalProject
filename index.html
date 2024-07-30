@@ -82,7 +82,7 @@ border: 0px;
   
 <script>
 function smallDogNext() {
-	removeChart("small_dog_breeds.csv");
+	removeChart();
 	createChart("small_dog_breeds.csv");
 }
 
@@ -166,19 +166,8 @@ function createChart(dataFile) {
 	});
 }
 
-function removeChart(dataFile) {
-  d3.csv(dataFile, function(error, data) {
-    if (error) throw error;
-  
-    data.forEach(function(d) {
-      d.AverageHeight = +d.AverageHeight;
-      d.AverageLongevity = +d.AverageLongevity;
-    });
-  
-    x.domain(d3.extent(data, function(d) { return d.AverageHeight; })).nice();
-    y.domain(d3.extent(data, function(d) { return d.AverageLongevity; })).nice();
-  
-    svg.selectAll().remove();
+function removeChart() {
+    svg.selectAll(*).remove();
 }
 	
 createChart("dog_breeds.csv");
