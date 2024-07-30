@@ -77,55 +77,56 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("small_dog_breeds.csv", function(error, data) {
-  if (error) throw error;
-
-  data.forEach(function(d) {
-    d.AverageHeight = +d.AverageHeight;
-    d.AverageLongevity = +d.AverageLongevity;
-  });
-
-  x.domain(d3.extent(data, function(d) { return d.AverageHeight; })).nice();
-  y.domain(d3.extent(data, function(d) { return d.AverageLongevity; })).nice();
-
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis)
-    .append("text")
-      .attr("class", "label")
-      .attr("x", width)
-      .attr("y", 30)
-      .style("text-anchor", "end")
-      .text("Average Height (in)");
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("class", "label")
-      .attr("transform", "rotate(-90)")
-      .attr("y", -45)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end ")
-      .text("Sepal Length (cm)")
-
-  svg.selectAll(".dot")
-      .data(data)
-    .enter().append("circle")
-      .attr("class", "dot")
-      .attr("r", 8)
-      .attr("cx", function(d) { return x(d.AverageHeight); })
-      .attr("cy", function(d) { return y(d.AverageLongevity); })
-      .style("fill", function(d) { return color(d.Breed); })
-      .on("mouseover", function(d, i) { 
-        tooltip.style("opacity", 1)
-          .style("left", (d3.event.pageX)+"px")
-          .style("top", (d3.event.pageY)+"px")
-          .html("The " + d.Breed + " breed can be between " + d.MinHeight + "-" + d.MaxHeight + " inches in height and live between " + d.MinLongevity + "-" + d.MaxLongevity + " years." );
-    })
-    .on("mouseout", function() { tooltip.style("opacity", 0) });
-
+function smallDogData() {
+  d3.csv("small_dog_breeds.csv", function(error, data) {
+    if (error) throw error;
+  
+    data.forEach(function(d) {
+      d.AverageHeight = +d.AverageHeight;
+      d.AverageLongevity = +d.AverageLongevity;
+    });
+  
+    x.domain(d3.extent(data, function(d) { return d.AverageHeight; })).nice();
+    y.domain(d3.extent(data, function(d) { return d.AverageLongevity; })).nice();
+  
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis)
+      .append("text")
+        .attr("class", "label")
+        .attr("x", width)
+        .attr("y", 30)
+        .style("text-anchor", "end")
+        .text("Average Height (in)");
+  
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+      .append("text")
+        .attr("class", "label")
+        .attr("transform", "rotate(-90)")
+        .attr("y", -45)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end ")
+        .text("Sepal Length (cm)")
+  
+    svg.selectAll(".dot")
+        .data(data)
+      .enter().append("circle")
+        .attr("class", "dot")
+        .attr("r", 8)
+        .attr("cx", function(d) { return x(d.AverageHeight); })
+        .attr("cy", function(d) { return y(d.AverageLongevity); })
+        .style("fill", function(d) { return color(d.Breed); })
+        .on("mouseover", function(d, i) { 
+          tooltip.style("opacity", 1)
+            .style("left", (d3.event.pageX)+"px")
+            .style("top", (d3.event.pageY)+"px")
+            .html("The " + d.Breed + " breed can be between " + d.MinHeight + "-" + d.MaxHeight + " inches in height and live between " + d.MinLongevity + "-" + d.MaxLongevity + " years." );
+      })
+      .on("mouseout", function() { tooltip.style("opacity", 0) });
+  }
 });
 
 </script>
