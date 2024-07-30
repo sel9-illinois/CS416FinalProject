@@ -68,7 +68,7 @@ d3.csv("dog_breeds.csv", function(error, data) {
       .attr("x", width)
       .attr("y", -6)
       .style("text-anchor", "end")
-      .text("Sepal Width (cm)");
+      .text("Average Height (in)");
 
   svg.append("g")
       .attr("class", "y axis")
@@ -79,7 +79,7 @@ d3.csv("dog_breeds.csv", function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Sepal Length (cm)")
+      .text("Average Life Expectancy (yrs)")
 
   svg.selectAll(".dot")
       .data(data)
