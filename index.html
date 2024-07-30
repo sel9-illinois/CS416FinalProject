@@ -121,7 +121,7 @@ function createChart(dataFile, annotations) {
     if (error) throw error;
 
     svg.append("text")
-	  .text({return annotations});
+	  .text(annotations);
 
     data.forEach(function(d) {
       d.AverageHeight = +d.AverageHeight;
@@ -171,6 +171,6 @@ function createChart(dataFile, annotations) {
 	});
 }
 	
-createChart("dog_breeds.csv");
+createChart("dog_breeds.csv","Hello... what I have to say");
 
 </script>
