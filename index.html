@@ -130,15 +130,7 @@ function createChart(dataFile, annotation1, annotation2) {
 	.attr("y", -10)
 	.style("text-anchor", "start")
 	.text(annotation2);
-		
-    data.forEach(function(d) {
-      d.AverageHeight = +d.AverageHeight;
-      d.AverageLongevity = +d.AverageLongevity;
-    });
 
-	    
-    x.domain(d3.extent(data, function(d) { return d.AverageHeight; })).nice();
-    y.domain(d3.extent(data, function(d) { return d.AverageLongevity; })).nice();
 
 	var x = d3.scale.linear()
 	    .range([0, width]);
@@ -156,6 +148,15 @@ function createChart(dataFile, annotation1, annotation2) {
 	 .scale(y)
 	.orient("left");
 
+	    
+    data.forEach(function(d) {
+      d.AverageHeight = +d.AverageHeight;
+      d.AverageLongevity = +d.AverageLongevity;
+    });
+
+	    
+    x.domain(d3.extent(data, function(d) { return d.AverageHeight; })).nice();
+    y.domain(d3.extent(data, function(d) { return d.AverageLongevity; })).nice();
 	    
     svg.selectAll(".dot")
         .data(data)
