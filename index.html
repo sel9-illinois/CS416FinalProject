@@ -137,12 +137,13 @@ function createChart(dataFile) {
 }
 
 function removeChart(){
-	d3.select("h1").remove();
-	d3.select("p1").remove();
-	d3.select("p2").remove();
-	d3.selectAll(".dot").remove();
-	d3.selectAll("g").remove();
-	d3.selectAll("text").remove();
+	document.body.innerHTML="";
+	//d3.select("h1").remove();
+	//d3.select("p1").remove();
+	//d3.select("p2").remove();
+	//d3.selectAll(".dot").remove();
+	//d3.selectAll("g").remove();
+	//d3.selectAll("text").remove();
 }
 
 createChart("dog_breeds.csv");
