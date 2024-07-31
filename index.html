@@ -112,7 +112,7 @@ function mediumDogNext() {
 
 var tooltip = d3.select("#tooltip");
 	
-var margin = {top: 80, right: 150, bottom: 80, left: 60};
+var margin = {top: 60, right: 150, bottom: 80, left: 60};
 var width = 1350 - margin.left - margin.right;
 var height = 580 - margin.top - margin.bottom;
 
@@ -131,14 +131,14 @@ function createChart(dataFile, annotation1, annotation2) {
 
     svg.append("text")
 	.attr("class", "label")
-	.attr("x", -40)
+	.attr("x", -50)
 	.attr("y", -40)
 	.style("text-anchor", "start")
 	.text(annotation1);
 
     svg.append("text")
 	.attr("class", "label")
-	.attr("x", -40)
+	.attr("x", -60)
 	.attr("y", -20)
 	.style("text-anchor", "start")
 	.text(annotation2);
