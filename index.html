@@ -7,7 +7,8 @@
 </head>
 
 <h1>The following charts compare the average height of a range of dog breeds with respect to their average life expectancy.</h1>
-<h2>The charts are displayed beginning with all breed sizes, followed by small, medium, large respectively. Once you reach the end, the sequence begins again.</h2>
+<h2>Please select the button for which data set you are interested in and see correlating annotations regarding that data set.</h2>
+<h2>Additionally, please hover over the data points of interest to you to see the name of that breed type and their specific height and life span ranges.</h2>
 
 
 </p><button onclick="allBreeds()">All Breed Data</button><button onclick="smallBreed()">Small Breed Data</button><button onclick="mediumBreed()">Medium Breed Data</button><button onclick="largeBreed()">Large Breed Data</button></p>
@@ -15,7 +16,7 @@
 <style>
 
 body {
-  font: 10px sans-serif;
+  font: 15px sans-serif;
 }
 	
 .axis path,
@@ -66,12 +67,14 @@ function smallBreed(){
 function mediumBreed(){
 	var mediumBreedAnnotation1 = "This scene shows the average height and life expectancy for medium dogs which includes anything in the range of 15 in to 22 in.";
 	var mediumBreedAnnotation2 = "You can see that most medium dogs tend to live the average years for all dogs. All medium dog breeds tend to live longer than 8 years and as long as 16 years.";
+	removeChart();
 	createChart("medium_dog_breeds.csv",mediumBreedAnnotation1,mediumBreedAnnotation2);
 }
 
 function largeBreed(){
 	var largeBreedAnnotation1 = "This scene shows the average height and life expectancy for large dogs which includes anything taller than 22 in.";
 	var largeBreedAnnotation2 = "You can see that all large dogs tend to live shorter than the average for all dogs. All large dog breeds tend to live longer than 6 years and as long as 15 years.";	
+	removeChart();
 	createChart("large_dog_breeds.csv",largeBreedAnnotation1,largeBreedAnnotation2);
 }
 	
