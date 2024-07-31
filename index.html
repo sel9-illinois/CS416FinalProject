@@ -82,15 +82,6 @@ var margin = {top: 50, right: 150, bottom: 40, left: 60};
 var width = 1120 - margin.left - margin.right;
 var height = 580 - margin.top - margin.bottom;
 
-	
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left");
-	
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -148,6 +139,15 @@ function createChart(dataFile, annotation1, annotation2) {
 	    .range([height, 0]);
 	
 	var color = d3.scale.category10();
+
+	const xAxis = d3.svg.axis()
+  	  .scale(x)
+   	 .orient("bottom");
+
+	const yAxis = d3.svg.axis()
+   	 .scale(y)
+    	.orient("left");
+	
 	    
     x.domain(d3.extent(data, function(d) { return d.AverageHeight; })).nice();
     y.domain(d3.extent(data, function(d) { return d.AverageLongevity; })).nice();
