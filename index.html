@@ -46,7 +46,7 @@ border: 0px;
 	
 <script>
 
-var allBreedAnnotation1 = "Large Dogs:" + /n + "This scene shows the average height of a given dog breed with respect to its expected average life expectancy for all sizes of dog breeds. As you can see in the plot, the life expectancy tends to decrease the larger the dog gets."
+var allBreedAnnotation1 = "This scene shows the average height of a given dog breed with respect to its expected average life expectancy for all sizes of dog breeds. As you can see in the plot, the life expectancy tends to decrease the larger the dog gets."
 var allBreedAnnotation2 = "As you can see in the plot, the life expectancy tends to decrease the larger the dog gets."
 
 var smallBreedAnnotation1 = "This scene shows the average height and life expectancy for small dogs which includes anything shorter than 15 in."
@@ -68,17 +68,27 @@ var csvFile;
 var note1;
 var note2;
 
+function allBreeds(){
+	var allBreedAnnotation1 = "Large Dogs:" + /n + "This scene shows the average height of a given dog breed with respect to its expected average life expectancy for all sizes of dog breeds. As you can see in the plot, the life expectancy tends to decrease the larger the dog gets."
+	var allBreedAnnotation2 = "As you can see in the plot, the life expectancy tends to decrease the larger the dog gets."
+	createChart("dog_breeds.csv",allBreedAnnotation1,allBreedAnnotation2);
+}
+	
 function smallBreed(){
 	var smallBreedAnnotation1 = "This scene shows the average height and life expectancy for small dogs which includes anything shorter than 15 in."
 	var smallBreedAnnotation2 = "You can see that all small dogs tend to live longer than the average for all dogs. All small dog breeds tend to live longer than 10 years and as long as 20 years."
 	createChart("small_breeds.csv",smallBreedAnnotation1,smallBreedAnnotation2);
 }
+
+function smallBreed(){
+	var mediumBreedAnnotation1 = "This scene shows the average height and life expectancy for medium dogs which includes anything in the range of 15 in to 22 in."
+	var mediumBreedAnnotation2 = "You can see that most medium dogs tend to live the average years for all dogs. All medium dog breeds tend to live longer than 8 years and as long as 16 years."
+	createChart("medium_breeds.csv",mediumBreedAnnotation1,mediumBreedAnnotation2);
+}
 	
 function nextBreedData() {
 	if(breedCount == 0){
-		csvFile = "dog_breeds.csv";
-		note1 = allBreedAnnotation1;
-		note2 = allBreedAnnotation2;
+		allBreeds();
 		breedCount++;
 	} else if(breedCount == 1){
 		smallBreed();
@@ -205,16 +215,10 @@ function createChart(dataFile, annotation1, annotation2) {
 	});
 }
 
-	
-
-	
-
 function removeChart(){
 	d3.selectAll(".dot").remove();
 	d3.selectAll("text").remove();
 }
 
-createChart("dog_breeds.csv",allBreedAnnotation1,allBreedAnnotation2);
-
-
+allBreeds();
 </script>
