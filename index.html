@@ -6,7 +6,13 @@
   <title>Narrative Visualization for Dog Breeds</title>
 </head>
 
-</p><button onclick="smallDogNext()">See Small Dog Data</button></p>
+function removeButton() {
+  var button = document.getElementById("hideButton");
+  button.remove();
+}
+<div id="hideButton">
+	</p><button onclick="smallDogNext()">See Small Dog Data</button></p>
+</div>
 
 <style>
 
@@ -57,6 +63,11 @@ function smallDogNext() {
 	createChart("small_dog_breeds.csv");
 }
 
+function removeButton() {
+  var button = document.getElementById("hideButton");
+  button.remove();
+}
+	
 function mediumDogNext() {
 	removeChart();
 	getElementById("step3");
