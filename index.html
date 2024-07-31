@@ -51,6 +51,7 @@ border: 0px;
 <script>
 function smallDogNext() {
 	removeChart();
+	document.getElementById("step1");
 	createChart("small_dog_breeds.csv");
 }
 	
@@ -58,10 +59,8 @@ function createChart(dataFile) {
 	var tooltip = d3.select("#tooltip");
 		
 	const margin = {top: 50, right: 150, bottom: 40, left: 60};
-	const width = 910;
-	const height = 490;
-	//const width = 1120 - margin.left - margin.right;
-	//const height = 580 - margin.top - margin.bottom;
+	const width = 1120 - margin.left - margin.right;
+	const height = 580 - margin.top - margin.bottom;
 	
 	const x = d3.scale.linear()
 	    .range([0, width]);
