@@ -211,7 +211,7 @@ function createChart(dataFile, annotation1, annotation2) {
 function removeChart(){
 	d3.selectAll(".dot").remove();
 	d3.selectAll("text").remove();
-	d3.selectAll(".tick").remove();
+	d3.svg.selectAll("axis").remove();
 }
 
 allBreeds();
