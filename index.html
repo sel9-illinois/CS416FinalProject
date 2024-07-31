@@ -132,27 +132,8 @@ function createChart(dataFile, annotation1, annotation2) {
 	    
     x.domain(d3.extent(data, function(d) { return d.AverageHeight; })).nice();
     y.domain(d3.extent(data, function(d) { return d.AverageLongevity; })).nice();
-	    
-    svg.selectAll(".dot")
-        .data(data)
-      .enter().append("circle")
-        .attr("class", "dot")
-        .attr("r", 8)
-        .attr("cx", function(d) { return x(d.AverageHeight); })
-        .attr("cy", function(d) { return y(d.AverageLongevity); })
-        .style("fill", function(d) { return color(d.Breed); })
-        .on("mouseover", function(d, i) { 
-          tooltip.style("opacity", 1)
-            .style("left", (d3.event.pageX)+"px")
-            .style("top", (d3.event.pageY)+"px")
-            .html("The " + d.Breed + " breed can be between " + d.MinHeight + "-" + d.MaxHeight + " inches in height and live between " + d.MinLongevity + "-" + d.MaxLongevity + " years." );
-      })
-      .on("mouseout", function() { tooltip.style("opacity", 0) });
-	});
-}
 
-	
-svg.append("g")
+	    svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis)
@@ -173,6 +154,27 @@ svg.append("g")
         .attr("dy", ".71em")
         .style("text-anchor", "end ")
         .text("Life Expectancy (years)")
+	    
+    svg.selectAll(".dot")
+        .data(data)
+      .enter().append("circle")
+        .attr("class", "dot")
+        .attr("r", 8)
+        .attr("cx", function(d) { return x(d.AverageHeight); })
+        .attr("cy", function(d) { return y(d.AverageLongevity); })
+        .style("fill", function(d) { return color(d.Breed); })
+        .on("mouseover", function(d, i) { 
+          tooltip.style("opacity", 1)
+            .style("left", (d3.event.pageX)+"px")
+            .style("top", (d3.event.pageY)+"px")
+            .html("The " + d.Breed + " breed can be between " + d.MinHeight + "-" + d.MaxHeight + " inches in height and live between " + d.MinLongevity + "-" + d.MaxLongevity + " years." );
+      })
+      .on("mouseout", function() { tooltip.style("opacity", 0) });
+	});
+}
+
+	
+
 	
 
 function removeChart(){
