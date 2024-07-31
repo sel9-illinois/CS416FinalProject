@@ -156,11 +156,11 @@ function createChart(dataFile, annotation1, annotation2) {
 }
 
 function removeChart(){
-	document.body.innerHTML="";
+	//document.body.innerHTML="";
 	//d3.select("h1").remove();
 	//d3.select("p1").remove();
 	//d3.select("p2").remove();
-	//d3.selectAll(".dot").remove();
+	d3.selectAll(".dot").remove();
 	//d3.selectAll("g").remove();
 	//d3.selectAll("text").remove();
 }
