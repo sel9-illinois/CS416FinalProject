@@ -23,6 +23,7 @@ body {
 .axis path,
 .axis line {
   fill: none;
+  stroke: #000;
   shape-rendering: crispEdges;
 }
 
@@ -143,7 +144,7 @@ function createChart(dataFile, annotation1, annotation2) {
 	
 	var color = d3.scale.category10();
 
-	    	var xAxis = d3.svg.axis()
+	var xAxis = d3.svg.axis()
 	  .scale(x)
 	 .orient("bottom");
 	
