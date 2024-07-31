@@ -63,7 +63,7 @@ function replaceButton(){
   	button.remove();
 }
 
-var breedCount = 0; //0 - total, 1 - small, 2 - medium, 3 - large
+var breedCount = 1; //0 - total, 1 - small, 2 - medium, 3 - large
 var csvFile;
 var note1;
 var note2;
@@ -214,5 +214,8 @@ function removeChart(){
 	//d3.selectAll("g").remove();
 	d3.select("text").remove();
 }
+
+createChart("dog_breeds.csv",allBreedAnnotation1,allBreedAnnotation2);
+
 
 </script>
