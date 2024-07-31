@@ -132,25 +132,26 @@ function createChart(dataFile, annotation1, annotation2) {
       d.AverageLongevity = +d.AverageLongevity;
     });
 
-	var x = d3.scale.linear()
-	    .range([0, width]);
-	
-	var y = d3.scale.linear()
-	    .range([height, 0]);
-	
-	var color = d3.scale.category10();
-
-	var xAxis = d3.svg.axis()
-  	  .scale(x)
-   	 .orient("bottom");
-
-	var yAxis = d3.svg.axis()
-   	 .scale(y)
-    	.orient("left");
-	
 	    
     x.domain(d3.extent(data, function(d) { return d.AverageHeight; })).nice();
     y.domain(d3.extent(data, function(d) { return d.AverageLongevity; })).nice();
+
+var x = d3.scale.linear()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var color = d3.scale.category10();
+
+var xAxis = d3.svg.axis()
+  .scale(x)
+ .orient("bottom");
+
+var yAxis = d3.svg.axis()
+ .scale(y)
+.orient("left");
+
 	    
     svg.selectAll(".dot")
         .data(data)
