@@ -6,7 +6,7 @@
   <title>Narrative Visualization for Dog Breeds</title>
 </head>
 
-</p><button onclick="smallDogNext()" class="button1">Next Breed Data</button></p>
+</p><button onclick="nextBreedData()" class="button1">Next Breed Data</button></p>
 
 
 
@@ -59,10 +59,22 @@ function replaceButton(){
   	button.remove();
 }
 
-function smallDogNext() {
+var breedCount = 0; //0 - total, 1 - small, 2 - medium, 3 - large
+var csvFile;
+	
+function nextBreedData() {
+	if(breedCount == 0){
+		csvFile = "dog_breeds.csv";
+	} else if(breedCount == 1){
+		csvFile = "small_dog_breeds.csv";
+	} else if(breedCount == 2){
+		csvFile = "medium_dog_breeds.csv";
+	} else if(breedCount == 3){
+		csvFile = "large_dog_breeds.csv";
+		breedCount = 0;
+	}
 	removeChart();
-	createChart("small_dog_breeds.csv");
-	replaceButton();
+	createChart(csvFile);
 }
 
 function removeButton() {
