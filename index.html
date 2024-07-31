@@ -10,7 +10,7 @@
 <h2>The charts are displayed beginning with all breed sizes, followed by small, medium, large respectively. Once you reach the end, the sequence begins again.</h2>
 
 
-</p><button onclick="nextBreedData()">Next Breed Data</button></p>
+</p><button onclick="nextBreedData()">Next Breed Data</button><button onclick="smallBreed()">Small Breed Data</button></p>
 
 
 
@@ -67,6 +67,12 @@ var breedCount = 1; //0 - total, 1 - small, 2 - medium, 3 - large
 var csvFile;
 var note1;
 var note2;
+
+function smallBreed(){
+	var smallBreedAnnotation1 = "This scene shows the average height and life expectancy for small dogs which includes anything shorter than 15 in."
+	var smallBreedAnnotation2 = "You can see that all small dogs tend to live longer than the average for all dogs. All small dog breeds tend to live longer than 10 years and as long as 20 years."
+	createChart("small_breeds.csv",smallBreedAnnotation1,smallBreedAnnotation2);
+}
 	
 function nextBreedData() {
 	if(breedCount == 0){
@@ -75,9 +81,7 @@ function nextBreedData() {
 		note2 = allBreedAnnotation2;
 		breedCount++;
 	} else if(breedCount == 1){
-		csvFile = "small_dog_breeds.csv";
-		note1 = smallBreedAnnotation1;
-		note2 = smallBreedAnnotation2;
+		smallBreed();
 		breedCount++;
 	} else if(breedCount == 2){
 		csvFile = "medium_dog_breeds.csv";
