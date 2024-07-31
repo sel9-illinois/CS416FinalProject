@@ -92,13 +92,6 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var x = d3.scale.linear()
-	    .range([0, width]);
-	
-	var y = d3.scale.linear()
-	    .range([height, 0]);
-	
-	var color = d3.scale.category10();
 	
 
 function createChart(dataFile, annotation1, annotation2) {
@@ -118,6 +111,13 @@ function createChart(dataFile, annotation1, annotation2) {
 	.style("text-anchor", "start")
 	.text(annotation2);
 
+	    var x = d3.scale.linear()
+	    .range([0, width]);
+	
+	var y = d3.scale.linear()
+	    .range([height, 0]);
+	
+	var color = d3.scale.category10();
 	    
     data.forEach(function(d) {
       d.AverageHeight = +d.AverageHeight;
