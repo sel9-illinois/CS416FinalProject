@@ -6,7 +6,9 @@
   <title>Narrative Visualization for Dog Breeds</title>
 </head>
 
-</p><button onclick="smallDogNext()">See Small Dog Data</button></p>
+<div id="hideButton">
+    <a onclick="smallDogNext()" class="button1">PRESS</a>
+</div>
 
 <style>
 
@@ -51,10 +53,16 @@ var mediumBreedAnnotation2 = "You can see that most medium dogs tend to live the
 
 var largeBreedAnnotation1 = "This scene shows the average height and life expectancy for large dogs which includes anything taller than 22 in."
 var largeBreedAnnotation2 = "You can see that all large dogs tend to live shorter than the average for all dogs. All large dog breeds tend to live longer than 6 years and as long as 15 years."
-	
+
+function replaceButton(){
+	var button = document.getElementById("hideButton");
+  	button.remove();
+}
+
 function smallDogNext() {
 	removeChart();
 	createChart("small_dog_breeds.csv");
+	replaceButton();
 }
 
 function removeButton() {
