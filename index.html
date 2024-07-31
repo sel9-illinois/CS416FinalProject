@@ -131,13 +131,13 @@ function createChart(dataFile, annotation1, annotation2) {
 
     svg.append("text")
 	.attr("class", "label")
-	.attr("y", -20)
+	.attr("y", -40)
 	.style("text-anchor", "start")
 	.text(annotation1);
 
     svg.append("text")
 	.attr("class", "label")
-	.attr("y", -10)
+	.attr("y", -20)
 	.style("text-anchor", "start")
 	.text(annotation2);
 
@@ -173,7 +173,7 @@ function createChart(dataFile, annotation1, annotation2) {
       .append("text")
         .attr("class", "label")
         .attr("x", width)
-        .attr("y", 30)
+        .attr("y", 40)
         .style("text-anchor", "end")
         .text("Average Height (in)");
   
