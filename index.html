@@ -51,11 +51,6 @@ var mediumBreedAnnotation2 = "You can see that most medium dogs tend to live the
 
 var largeBreedAnnotation1 = "This scene shows the average height and life expectancy for large dogs which includes anything taller than 22 in."
 var largeBreedAnnotation2 = "You can see that all large dogs tend to live shorter than the average for all dogs. All large dog breeds tend to live longer than 6 years and as long as 15 years."
-
-	
-function newScene(annotation1,annotation2,size){
-	
-}
 	
 function smallDogNext() {
 	removeChart();
@@ -83,15 +78,15 @@ function createChart(dataFile, annotation1, annotation2) {
 	
 	var color = d3.scale.category10();
 	
-	const xAxis = d3.svg.axis()
+	var xAxis = d3.svg.axis()
 	    .scale(x)
 	    .orient("bottom");
 	
-	const yAxis = d3.svg.axis()
+	var yAxis = d3.svg.axis()
 	    .scale(y)
 	    .orient("left");
 	
-	const svg = d3.select("body").append("svg")
+	var svg = d3.select("body").append("svg")
 	    .attr("width", width + margin.left + margin.right)
 	    .attr("height", height + margin.top + margin.bottom)
 	  .append("g")
@@ -100,6 +95,18 @@ function createChart(dataFile, annotation1, annotation2) {
 	d3.csv(dataFile, function(error, data) {
 	    if (error) throw error;
 
+	 svg.append("text")
+	.attr("class", "label")
+	.attr("y", 10)
+	.style("text-anchor", "start")
+	.text(annotation1);
+
+    svg.append("text")
+	.attr("class", "label")
+	.attr("y", 0)
+	.style("text-anchor", "start")
+	.text(annotation2);
+		
     data.forEach(function(d) {
       d.AverageHeight = +d.AverageHeight;
       d.AverageLongevity = +d.AverageLongevity;
