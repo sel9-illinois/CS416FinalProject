@@ -6,9 +6,9 @@
   <title>Narrative Visualization for Dog Breeds</title>
 </head>
 
-<h1>The following charts compare the average height of a range of dog breeds with respect to their average life expectancy.</h1>
-<h2>Please select the button for which data set you are interested in and see correlating annotations regarding that data set.</h2>
-<h2>Additionally, please hover over the data points of interest to you to see the name of that breed type and their specific height and life span ranges.</h2>
+<h2>The following charts compare the average height of a range of dog breeds with respect to their average life expectancy.</h2>
+<h3>Please select the button for which data set you are interested in and see correlating annotations regarding that data set.</h3>
+<h3>Additionally, please hover over the data points of interest to you to see the name of that breed type and their specific height and life span ranges.</h3>
 
 
 </p><button onclick="allBreeds()">All Breed Data</button><button onclick="smallBreed()">Small Breed Data</button><button onclick="mediumBreed()">Medium Breed Data</button><button onclick="largeBreed()">Large Breed Data</button></p>
@@ -114,7 +114,7 @@ var tooltip = d3.select("#tooltip");
 	
 var margin = {top: 50, right: 150, bottom: 40, left: 60};
 var width = 1350 - margin.left - margin.right;
-var height = 700 - margin.top - margin.bottom;
+var height = 580 - margin.top - margin.bottom;
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
