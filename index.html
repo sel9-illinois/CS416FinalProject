@@ -13,7 +13,7 @@
       <p1>This scene shows the average height of a given dog breed with respect to its expected average life expectancy for all sizes of dog breeds.</p1>
       <p2> As you can see in the plot, the life expectancy tends to decrease the larger the dog gets.</p2>
     </p>
-	<button onclick="smallDogNext()">See Small Dog Data</button><button onclick="removeChart()">Remove Chart</button>
+	<button onclick="smallDogNext()">See Small Dog Data</button>
   </div>
 </div>
 
@@ -25,7 +25,7 @@
     This scene shows the average height and life expectancy for small dogs which includes anything shorter than 15 in.<br/>
     You can see that all small dogs tend to live longer than the average for all dogs. All small dog breeds tend to live longer than 10 years and as long as 20 years.
     </p>
-    <p><div id="to_step3"><a href="#">View next >>></a></div></p>
+	<button onclick="mediumDogNext()">See Small Dog Data</button>
   </div>
 </div>
 
@@ -86,6 +86,12 @@ function smallDogNext() {
 	removeChart();
 	getElementById("step1");
 	createChart("small_dog_breeds.csv");
+}
+
+function mediumDogNext() {
+	removeChart();
+	getElementById("step3");
+	createChart("medium_dog_breeds.csv");
 }
 	
 function createChart(dataFile) {
